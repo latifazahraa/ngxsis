@@ -1,0 +1,186 @@
+﻿@model Xsis.Model.Riwayat_Pendidikan
+
+@using (Html.BeginForm("EditSimpan", "Riwayat_Pendidikan", FormMethod.Post, new { id = "idFrmEditPendidikan" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table-responsive">
+                    <tr>
+                        <td>
+                            <label for="idSklhInstansi">Nama Sekolah/Instansi</label>
+                            <input type="text" name="school_name" class="form-control" id="idSklhInstansiEdit" placeholder="">
+                            <input type="hidden" name="pendidikan_id" id="idget" />
+                        </td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="idJenjang">Jenjang Pendidikan</label>
+                            <select type="text" name="education_level_id" class="form-control" id="idJenjangEdit" placeholder="-Pilih-">
+                                <option>-Pilih-</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="col-xs-6 col-sm-3">
+                <table class="table-responsive">
+                    <tr>
+                        <td>
+                            <label for="idKota">Kota</label>
+                            <input type="text" name="city" class="form-control" id="idKotaEdit" placeholder="">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="idThnMasuk">Tahun Masuk</label>
+                            <select type="text" name="entry_year" class="form-control" id="idThnMasukEdit" placeholder="-Pilih-">
+                                <option>-Pilih-</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <table class="table-responsive">
+                    <tr>
+                        <td>
+                            <label for="idNegara">Negara</label>
+                            <input type="text" name="country" class="form-control" id="idNegaraEdit" placeholder="">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="idThnLulus">Tahun Lulus</label>
+                            <select type="text" name="graduation_year" class="form-control" id="idThnLulusEdit" placeholder="-Pilih-">
+                                <option>-Pilih-</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6">
+                <table class="table-responsive">
+                    <tr>
+                        <td>
+                            <label for="idJurusan">Jurusan</label>
+                            <input type="text" name="major" class="form-control" id="idJurusanEdit" placeholder="">
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-xs-6">
+                <table class="table-responsive">
+                    <tr>
+                        <td>
+                            <label for="idIPK">IPK</label>
+                            <input type="text" name="gpa" class="form-control" id="idIPKEdit" placeholder="">
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="form-group">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <label for="idCttn">Catatan</label>
+                            <input type="hidden" name="notes" class="form-control" id="idCttnEdit" value="dataTgl">
+                            <textarea></textarea>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <button type="button" class="btn btn-success" id="idBtnBatalEdit">Batal</button>
+                            <button type="button" class="btn btn-primary" id="idBtnSimpanEdit">Simpan</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        debugger;
+        var d = new Date();
+        var vOption = "";
+        for (var i = d.getFullYear() ; i >= 1970; i--) {
+            vOption = vOption +
+            '<option>' + i + '</option>'
+        }
+        $('#idThnLulusEdit').append(vOption);
+        $('#idThnMasukEdit').append(vOption);
+
+
+        $.ajax({
+            url: '/RiwayatPendidikan/AmbilData',
+            data: { ID: $('#idget').val() },
+            method: 'Get',
+            success: function (mdl) {
+                debugger;
+                $('#idSklhInstansiEdit').val(mdl.school_name);
+                $('#idJenjangEdit').val(mdl.education_level_id).selected;
+                $('#idKotaEdit').val(mdl.city);
+                $('#idJurusanEdit').val(mdl.major);
+                $('#idNegaraEdit').val(mdl.country);
+                $('#idThnMasukEdit').val(mdl.entry_year).selected;
+                $('#idThnLulusEdit').val(mdl.graduation_year).selected;
+                $('#idIPKEdit').val(mdl.gpa);
+                $('#idCttnEdit').val(mdl.notes); 
+
+            },
+            error: function (mdl) {
+                debugger;
+            }
+        });
+
+        $('#idBtnBatalEdit').click(function () {
+            $('#idMdlEditPendidikan').close;
+            location.reload();
+        });
+
+        $('#idBtnSimpanEdit').click(function () {
+            debugger;
+            var vDataEdit = $('#idFrmEditPendidikan').serialize();
+            $.ajax({
+                url: '/RiwayatPendidikan/EditSimpan',
+                data: vDataEdit,
+                method: 'Post',
+                success: function (mdl) {
+                    if (mdl.EditSimpan == "Berhasil") {
+                        debugger;
+                        alert("Data berhasil diEdit");
+                        $('#idMdlEditPendidikan').close;
+                        location.reload();
+                        $('#myModal').modal('show');
+
+                    }
+                    else {
+                        debugger;
+                        alert("Data gagal diEdit");
+                        $('#myModal').modal('show');
+                    }
+                }
+            });
+        });
+    });
+</script>
