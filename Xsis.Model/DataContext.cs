@@ -12,7 +12,7 @@ namespace Xsis.Model
     {
         public DataContext() : base("Name=NgxsisConn")
         {
-         //   Database.SetInitializer(new Initializer());
+            //Database.SetInitializer(new Initializer());
             Database.SetInitializer<DataContext>(null);
         }
 

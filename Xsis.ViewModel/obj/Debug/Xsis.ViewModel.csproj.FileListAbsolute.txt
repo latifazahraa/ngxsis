@@ -23,3 +23,13 @@ C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\DB Xsis\ngxsis\Xsis.
 C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\DB Xsis\ngxsis\Xsis.ViewModel\obj\Debug\Xsis.ViewModel.csprojResolveAssemblyReference.cache
 C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\DB Xsis\ngxsis\Xsis.ViewModel\obj\Debug\Xsis.ViewModel.dll
 C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\DB Xsis\ngxsis\Xsis.ViewModel\obj\Debug\Xsis.ViewModel.pdb
+C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.ViewModel\bin\Debug\Xsis.ViewModel.dll.config
+C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.ViewModel\bin\Debug\Xsis.ViewModel.dll
+C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.ViewModel\bin\Debug\Xsis.ViewModel.pdb
+C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.ViewModel\bin\Debug\EntityFramework.dll
+C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.ViewModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.ViewModel\bin\Debug\EntityFramework.xml
+C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.ViewModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.ViewModel\obj\Debug\Xsis.ViewModel.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.ViewModel\obj\Debug\Xsis.ViewModel.dll
+C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.ViewModel\obj\Debug\Xsis.ViewModel.pdb
