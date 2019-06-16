@@ -33,9 +33,10 @@
                 <label for="idJenjang" class="name-clr">Jenjang Pendidikan*</label><br />
                 <select type="text" name="education_level_id" class="form-control form-custom" id="idJenjang" placeholder="-Pilih-">
                     <option>-Pilih-</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+                    <option value="1">SD</option>
+                    <option value="2">SMP</option>
+                    <option value="3">SMA</option>
+                    <option value="4">Sarjana</option>
                 </select>
             </div>
 
@@ -69,14 +70,16 @@
         <div class="row">
             <div class="col-lg-12">
                 <label for="idCttn" class="name-clr">Catatan</label><br />
-                <input class="form-control form-custom col-md-12" id="idCttn" name="notes" style="height:100px;">
+                <input class="form-control form-custom col-md-12" id="idCttn" name="notes" style="height:100px;"><br />
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-12" align="right">
-                <button type="button" class="btn btn-primary btn-lg" style="background-color: orangered;" id="idBtnBatal">&nbsp Batal &nbsp</button>
-                <button type="button" class="btn btn-primary btn-lg" id="idBtnSimpan">Simpan</button>
+            <div class="col-lg-8"></div>
+                <div class="col-lg-4 btn-group">
+                    <button type="button" class="btn btn-primary btn-lg" style="background-color: orangered;" id="idBtnBatal">&nbsp Batal &nbsp</button>
+                    <button type="button" class="btn btn-primary btn-lg" id="idBtnSimpan">Simpan</button>
+                </div>
             </div>
         </div>
 

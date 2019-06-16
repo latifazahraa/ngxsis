@@ -92,6 +92,11 @@
         margin-top:3px;
     }
 
+    .hdr-popup-alert {
+        background-color: darkred;
+        color: white;
+    }
+
 </style>
 
 
@@ -186,13 +191,13 @@
 
 @*-------Modal Edit Pendidikan-----------*@
 
- <div class="modal fade" id="idMdlEditPendidikan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content bgr-popup-sm">
+ <div class="modal fade" id="idMdlEditPendidikan" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-edit" role="document">
+        <div class="modal-content">
             <div class="modal-header hdr-popup">
                 <h4 class="modal-title">
                     Ubah Pendidikan
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white; opacity:1;">x</button>
                 </h4>
             </div>
             <div class="modal-body" id="idBodyEditPendidikan">
@@ -200,11 +205,45 @@
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->           
+</div><!-- /.modal -->    
+
+
+@*-------Modal Alert Delete-----------*@
+
+<div class="modal fade" id="idMdlAlert" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="margin-top: 15%">
+        <div class="modal-content">
+            <div class="modal-header hdr-popup-alert">
+                <h4 class="modal-title">
+                    Hapus Pendidikan?
+                </h4>
+            </div>
+            <div class="modal-body" style="margin-top:7%;">
+                <div class="row" style="margin-bottom:7%;">
+                    <div class="col-lg-3" style="margin-left:6px;">
+                        <img src="http://cdn.onlinewebfonts.com/svg/img_510054.png" alt="dustbin icon" style="width:90px;height:90px;">
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-7" id="idBodyAlert" style="margin-top:4%; color:darkred; font-size: 15px;"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8"></div>
+                    <div class="col-lg-4 btn-group">
+                       <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color: orangered;">Tidak</button>
+                       <button type="button" class="btn btn-primary clHapusData" style="background-color: darkred;">&nbsp &nbsp Ya &nbsp &nbsp</button>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->         
+
+
 
 <script>
    $(document).ready(function () {
-
+       var vDataEducationLevel =
+          { 1: 'SD', 2: 'SLTP', 3: 'SLTA', 4: 'Sarjana' };
        debugger;
        var vStrHtml = '';
 
@@ -217,16 +256,16 @@
                    if (d.is_delete == false) {
                        vStrHtml = vStrHtml + '<tr>' +
                                '<td>' + d.school_name + '</td>' +
-                               '<td>' + d.education_level_id + '</td>' +
+                               '<td>' + vDataEducationLevel[d.education_level_id] + '</td>' +
                                '<td>' + d.entry_year + " s.d " + d.graduation_year + '</td>' +
                                '<td>' + d.gpa + '</td>' +
                                '<td class="dropdown">' +
-                                  '<button class="btn button-more btn-sm dropdown-toggle" type="button" data-toggle="dropdown">More &nbsp;' +
+                                  '<button class="btn btn-primary button-more btn-sm dropdown-toggle" type="button" data-toggle="dropdown">More &nbsp;' +
                                   '<span class="caret"></span>' +
                                   '</button>' +
                                   '<ul class="dropdown-menu">' +
                                   '<li><a href="" class="control clUbah" data-toggle="collapse" getData="' + d.pendidikan_id + '">Ubah</a></li>' +
-                                  '<li><a href="" class="control clHapus" data-toggle="collapse" getData="' + d.pendidikan_id + '">Hapus</a></li>' +
+                                  '<li><a href="" class="control clHapus" data-toggle="collapse" getDataFull=\'' + JSON.stringify(d) + '\'>Hapus</a></li>' +
                                   '</ul>' +
                                '</td>' +
                                '</tr>';
@@ -263,25 +302,45 @@
                }
            });
        });
-
+       
+       
+       //alert hapus data
        $(document).on("click", ".clHapus", function () {
            debugger;
-           var vDataHapus = JSON.parse($(this).attr('getData'));
-           debugger;
-           $.ajax({
-               url: '/RiwayatPendidikan/Hapus',
-               data: { ID: vDataHapus },
-               method: 'Post',
-               success: function (mdl) {
-                   location.reload();
-                   debugger;
-               },
-               error: function (mdl) {
-                   debugger;
-               }
-           });
+           var vHapus = JSON.parse($(this).attr('getDataFull'));
+           var vDataHapus = vHapus.pendidikan_id;
+               debugger;
+                   var vAlert = '<tr>' +
+                                '<td align="center">Anda yakin ingin menghapus pendidikan di &nbsp <br/><strong>'+ 
+                                 vDataEducationLevel[vHapus.education_level_id] + '&nbsp' + vHapus.school_name + '?' + '</strong></td>' +
+                                '</tr>';
+
+                   $('#idBodyAlert').empty(vAlert);
+                   $('#idBodyAlert').append(vAlert);
+                   $('#idMdlAlert').modal('show');
+
+           //tomblok klik alert hapus data
+             $('.clHapusData').click(function () {
+                debugger;
+
+                 $.ajax({
+                     url: '/RiwayatPendidikan/Hapus',
+                     data: { ID: vDataHapus },
+                     method: 'Post',
+                     success: function (mdl) {
+                        location.reload();
+                         debugger;
+                     },
+                     error: function (mdl) {
+                         debugger;
+                     }
+                });
+             });
+
        });
 
+
+        //ubah data
        $(document).on("click", ".clUbah", function () {
            debugger;
            var vDataUbah = JSON.parse($(this).attr('getData'));

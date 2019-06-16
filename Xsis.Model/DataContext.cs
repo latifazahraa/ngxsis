@@ -35,5 +35,6 @@ namespace Xsis.Model
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
+        public System.Data.Entity.DbSet<Xsis.Model.Sertifikasi> Sertifikasis { get; set; }
     }
 }

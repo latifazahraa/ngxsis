@@ -29,3 +29,13 @@ C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.Model\bin\Debug\EntityFramewor
 C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.Model\obj\Debug\Xsis.Model.csprojResolveAssemblyReference.cache
 C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.Model\obj\Debug\Xsis.Model.dll
 C:\Users\ASUS\Desktop\XSIS\NGSIS TIFA\ngxsis\Xsis.Model\obj\Debug\Xsis.Model.pdb
+C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\bin\Debug\Xsis.Model.dll.config
+C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\bin\Debug\Xsis.Model.dll
+C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\bin\Debug\Xsis.Model.pdb
+C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\bin\Debug\EntityFramework.dll
+C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\bin\Debug\EntityFramework.xml
+C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\obj\Debug\Xsis.Model.csprojResolveAssemblyReference.cache
+C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\obj\Debug\Xsis.Model.dll
+C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\obj\Debug\Xsis.Model.pdb
