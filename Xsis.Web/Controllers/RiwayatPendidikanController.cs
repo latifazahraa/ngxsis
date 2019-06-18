@@ -34,7 +34,6 @@ namespace Xsis.Web.Controllers
             {
                 return Json(new { Simpan = "Gagal" }, JsonRequestBehavior.AllowGet);
             }
-            return View();
         }
 
         public ActionResult Hapus(int ID)

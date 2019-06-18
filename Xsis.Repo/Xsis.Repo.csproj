@@ -53,6 +53,7 @@
     <Compile Include="KeluargaRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RiwayatPendidikanRepo.cs" />
+    <Compile Include="SertifikasiRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

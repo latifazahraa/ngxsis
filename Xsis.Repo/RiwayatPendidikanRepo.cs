@@ -71,14 +71,26 @@ namespace Xsis.Repo
             }
         }
 
-        public static Boolean EditPendidikan(Riwayat_Pendidikan pendidikan)
+        public static Boolean EditPendidikan(Riwayat_Pendidikan pendidikanMdl)
         {
             try
             {
+                Riwayat_Pendidikan pend;
                 using (DataContext db = new DataContext())
                 {
-                    pendidikan.modified_on = DateTime.Now.Date;
-                    db.Entry(pendidikan).State = System.Data.Entity.EntityState.Modified;
+                    pend = db.Riwayat_Pendidikan.Where(d => d.pendidikan_id == pendidikanMdl.pendidikan_id).First();
+                    pend.modified_by = pendidikanMdl.modified_by;
+                    pend.modified_on = DateTime.Now.Date;
+                    pend.created_by = pendidikanMdl.created_by;
+                    pend.pendidikan_id = pendidikanMdl.pendidikan_id;
+                    pend.school_name = pendidikanMdl.school_name;
+                    pend.major = pendidikanMdl.major;
+                    pend.education_level_id = pendidikanMdl.education_level_id;
+                    pend.entry_year = pendidikanMdl.entry_year;
+                    pend.graduation_year = pendidikanMdl.graduation_year;
+                    pend.notes = pendidikanMdl.notes;
+                    pend.modified_on = DateTime.Now.Date;
+                    db.Entry(pend).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
                 return true;

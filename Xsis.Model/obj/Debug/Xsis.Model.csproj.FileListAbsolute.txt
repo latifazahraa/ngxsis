@@ -36,6 +36,6 @@ C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\X
 C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\bin\Debug\EntityFramework.xml
 C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\obj\Debug\Xsis.Model.csprojResolveAssemblyReference.cache
 C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\obj\Debug\Xsis.Model.dll
 C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\obj\Debug\Xsis.Model.pdb
+C:\Users\Latifa Zahra\Documents\Visual Studio 2015\Projects\github tifa\ngxsis\Xsis.Model\obj\Debug\Xsis.Model.csprojResolveAssemblyReference.cache

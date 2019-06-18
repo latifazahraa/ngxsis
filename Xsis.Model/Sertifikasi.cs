@@ -16,31 +16,33 @@ namespace Xsis.Model
         // ID AUTO INCREAMENT PRIMARY KEY
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-        [Required(AllowEmptyStrings = false)]
         public long id { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
         public long created_by { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
-        [Column(TypeName = "Date")]
-        public DateTime create_on { get; set; }
-
-        public long modified_by { get; set; }
 
         [Column(TypeName = "Date")]
-        public DateTime modified_on { get; set; }
+        public Nullable<DateTime> created_on { get; set; }
 
-        public long delete_by { get; set; }
+
+        public Nullable<long> modified_by { get; set; }
+
 
         [Column(TypeName = "Date")]
-        public DateTime delete_on { get; set; }
+        public Nullable<DateTime> modified_on { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
+
+        public Nullable<long> deleted_by { get; set; }
+
+
+        [Column(TypeName = "Date")]
+        public Nullable<DateTime> deleted_on { get; set; }
+
+
         public Boolean is_delete { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
-        public long biodata_id { get; set; }
+
+        public Nullable<long> biodata_id { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(200)]

@@ -140,7 +140,7 @@
                     @*------------------------------TEMPAT TABLE------------------------------------*@
                     <div class="col-md-8">
                         <div class="table-responsive">
-                            <table class="table table-striped" id="tblRiwayatPendidikan">
+                            <table class="table table-striped"id="tblRiwayatPendidikan">
                                 <thead class="table-style">
                                     <tr>
                                         <th>
@@ -148,9 +148,10 @@
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th>Sekolah/Instansi</th>
+                                            <th>Sekolah/Instansi</th>
                                         <th>Jenjang</th>
                                         <th>Periode</th>
+                                        <th>Jurusan</th>
                                         <th>IPK</th>
                                         <th>#</th>
                                     </tr>
@@ -229,7 +230,7 @@
                 <div class="row">
                     <div class="col-lg-8"></div>
                     <div class="col-lg-4 btn-group">
-                       <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color: orangered;">Tidak</button>
+                       <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color: orangered;">&nbsp Tidak &nbsp</button>
                        <button type="button" class="btn btn-primary clHapusData" style="background-color: darkred;">&nbsp &nbsp Ya &nbsp &nbsp</button>
                     </div>
                 </div>
@@ -254,10 +255,18 @@
                debugger;
                $.each(mdl, function (i, d) { //menjahit data ke dalam tabel
                    if (d.is_delete == false) {
+
+                       if (d.major == null) {
+                           d.major = '-';
+                       }
+                       if (d.gpa == null) {
+                           d.gpa = '-';
+                       }
                        vStrHtml = vStrHtml + '<tr>' +
                                '<td>' + d.school_name + '</td>' +
                                '<td>' + vDataEducationLevel[d.education_level_id] + '</td>' +
                                '<td>' + d.entry_year + " s.d " + d.graduation_year + '</td>' +
+                               '<td>' + d.major + '</td>' +
                                '<td>' + d.gpa + '</td>' +
                                '<td class="dropdown">' +
                                   '<button class="btn btn-primary button-more btn-sm dropdown-toggle" type="button" data-toggle="dropdown">More &nbsp;' +

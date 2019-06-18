@@ -27,14 +27,12 @@ namespace Xsis.Model
         public virtual DbSet<Family_Relation> Family_Relation { get; set; }
         public virtual DbSet<Family_Tree_Type> Family_Tree_Type { get; set; }
         public virtual DbSet<Keluarga> Keluarga { get; set; }
-
         public virtual DbSet<Riwayat_Pendidikan> Riwayat_Pendidikan { get; set; }
+        public virtual DbSet<Sertifikasi> Sertifikasi { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
-
-        public System.Data.Entity.DbSet<Xsis.Model.Sertifikasi> Sertifikasis { get; set; }
     }
 }
