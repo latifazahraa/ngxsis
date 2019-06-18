@@ -70,7 +70,7 @@
         <div class="col-lg-3">
             <label for="idThnSelesai" class="name-clr"> &nbsp </label><br />
             <select type="text" name="until_year" class="form-control form-custom" id="idThnSelesai" placeholder="-Pilih-">
-                <option>-Pilih-</option>
+                <option>-Pilih Tahun-</option>
             </select>
         </div>
     </div>
@@ -93,55 +93,86 @@
 </form>
 
 <script>
-            $(document).ready(function () {
+    var d = new Date();
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agt', 'Sep', 'Okt', 'Nov', 'Des'];
+    $(document).ready(function () {
+        debugger;
 
-                var d = new Date();
-                var vOption = "";
-                for (var i = d.getFullYear() ; i >= 1970; i--) {
-                    vOption = vOption +
-                    '<option>' + i + '</option>'
-                }
+//looping untuk mengeluarkan tahun awal
+        var vOption = "";
+        for (var i = d.getFullYear() ; i >= 1970; i--) {
+            vOption = vOption +
+            '<option>' + i + '</option>'
+        }
 
-                $('#idThnMulai').append(vOption);
-                $('#idThnSelesai').append(vOption);
+        $('#idThnMulai').append(vOption);
 
-            });
+//looping untuk mengeluarkan bulan tahun akhir
+        $("#idThnMulai").click(function () {
 
-            $('#idBtnSimpan').click(function () {
-                // var sklh = $('#idSklhIstansi').val();
-                var vTmbhPendidikan = $('#idFrmSaveSertifikasi').serialize();
-                debugger;
-                $.ajax({
-                    url: '/Sertifikasi/Save',
-                    data: vTmbhPendidikan,
-                    method: 'Post',
-                    success: function (mdl) {
+            var vStartOpt = $('#idThnMulai').val();
+            var vEndOption = "";
+            for (var i = d.getFullYear() ; i >= vStartOpt; i--) {
+                vEndOption = vEndOption +
+                '<option>' + i + '</option>'
+            }
+
+            $('#idThnSelesai').empty();
+            $('#idThnSelesai').append(vEndOption);
+        });
+
+//tombol simpan dan batal aksi
+
+        $('#idBtnSimpan').click(function () {
+
+            var vM1 = $('#idBlnMulai').val();
+            var vM2 = $('#idBlnSelesai').val();
+            var vT1 = $('#idThnMulai').val();
+            var vT2 = $('#idThnSelesai').val();
+
+
+            if (vT1 == vT2 && vM1 < vM2 || vT1 < vT2) {
+
+            var vTmbh = $('#idFrmSaveSertifikasi').serialize();
+            debugger;
+            $.ajax({
+                url: '/Sertifikasi/Save',
+                data: vTmbh,
+                method: 'Post',
+                success: function (mdl) {
+                    debugger;
+                    if (mdl.Simpan == "Berhasil") {
                         debugger;
-                        if (mdl.Simpan == "Berhasil") {
-                            debugger;
-                            alert("Data berhasil disimpan");
-                            //$('.modal').modal('hide');
-                            //$.modal.close();
-                            $('#idMdlTambahSertifikasi').close;
-                            location.reload();
-                            $('#myModal').modal('show');
+                        alert("Data berhasil disimpan");
+                        //$('.modal').modal('hide');
+                        //$.modal.close();
+                        $('#idMdlTambahSertifikasi').close;
+                        location.reload();
+                        $('#myModal').modal('show');
 
-                        }
-                        else {
-                            debugger;
-                            alert("Data gagal disimpan");
-                        }
                     }
-                });
+                    else {
+                        debugger;
+                        alert("Data gagal disimpan");
+                    }
+                }
             });
 
+            }
+            else {
+                alert("Bulan atau Tahun tidak sesuai")
+            }
+        });
 
 
-            $('#idBtnBatal').click(function () {
-                debugger;
-                $('#idMdlTambahSertifikasi').modal('hide');
-                $('#myModal').modal('show');
-            });
+
+        $('#idBtnBatal').click(function () {
+            
+            $('#idMdlTambahSertifikasi').modal('hide');
+            $('#myModal').modal('show');
+        });
+    });
+
 </script>
 
 

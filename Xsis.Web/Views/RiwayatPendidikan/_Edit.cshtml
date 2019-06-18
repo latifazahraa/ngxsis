@@ -88,17 +88,31 @@
 
 
 <script>
+    var d = new Date();
     $(document).ready(function () {
-
         debugger;
-        var d = new Date();
         var vOption = "";
         for (var i = d.getFullYear() ; i >= 1970; i--) {
             vOption = vOption +
             '<option>' + i + '</option>'
         }
-        $('#idThnLulusEdit').append(vOption);
-        $('#idThnMasukEdit').append(vOption);
+
+        $('#idThnMasuk').append(vOption);
+
+        $("#idThnMasuk").click(function () {
+
+            var vEnterOpt = $('#idThnMasuk').val();
+            var vGradOption = "";
+            for (var i = d.getFullYear() ; i >= vEnterOpt; i--) {
+                vGradOption = vGradOption +
+                '<option>' + i + '</option>'
+            }
+
+            $('#idThnLulus').empty();
+            $('#idThnLulus').append(vGradOption);
+
+
+        });
 
 
         $.ajax({
